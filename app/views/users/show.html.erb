@@ -1,0 +1,37 @@
+<p class="notice"><%= flash[:notice] %></p>
+<div class="row">
+  <%= render 'books/sidebar', book: @book, user: @user %>
+  <div class="col-lg-8">
+    <h1>Books</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+              <% if @user.id =! current_user.id %>
+              <% end %>
+          </th>
+          <th>Title</th>
+          <th>Opinion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @books.each do |book| %>
+        <tr>
+          <td>
+              <% if @user.id =! current_user.id %>
+              <%= attachment_image_tag @user, :profile_image, :fill,100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+              <% end %>
+          </td>
+          <td>
+            <%= link_to book_path(book.id) do %>
+              <%= book.title %>
+            <% end %>
+          </td>
+          <td><%= book.opinion %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  
+</div>

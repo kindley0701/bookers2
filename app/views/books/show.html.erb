@@ -1,0 +1,20 @@
+<div class="row">
+  <%= render 'books/sidebar', book: @book2, user: @user %>
+  <div class="col-lg-8">
+    <h1>Book Detail</h1>
+    <span>
+      <%= attachment_image_tag @user, :profile_image, :fill,100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+      <%= @book.user.name %>
+    </span>
+    <span><%= @book.title %></span>
+    <span><%= @book.opinion %></span>
+    <% if @book.user == current_user %>
+      <span><%= link_to "Edit", edit_book_path(@book.id) %></span>
+      <span><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "Are you sure？" %></span>
+    <% end %>
+  </div>
+  </div>
+
+
+
+

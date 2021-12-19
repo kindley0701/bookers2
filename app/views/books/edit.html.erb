@@ -1,0 +1,14 @@
+<h1>Editing Book</h1>
+<div>
+  <%= form_with model:@book, locla:true do |f| %>
+    <p>Title</p>
+    <%= f.text_field :title %>
+    <p>opinion</p>
+    <%= f.text_area :opinion %>
+    <%= f.submit "Update Book", method: :patch %>
+  <% end %>
+  <span><%= link_to "show", book_path(@book.id) %></span>
+  <div>|</div>
+  <span><%= link_to "Back", books_path %></span>
+</div>
+
