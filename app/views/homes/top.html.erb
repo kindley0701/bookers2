@@ -1,8 +1,17 @@
-<h1>welcome to Bookers!</h1>
-<p>
-  In Bookers,<br>
-  you can share and exchange your opinions , inpressions , and emotions<br>
-  about various books!
-</p>
-<span><%= link_to "Log in", new_user_session_path %></span>
-<span><%= link_to "Sign up", new_user_registration_path %></span>
+<p class="notice"><%= flash[:notice] %></p>
+<div class="main">
+  <div class="top">
+    <h1>welcome to <i class="fas fa-book">Bookers</i></h1>
+    <p>
+      In <i class="fas fa-book">Bookers</i>,<br>
+      you can share and exchange your opinions , inpressions , and emotions<br>
+      about various books!
+    </p>
+    <span>
+      <span class="btn btn-info w-100 m-1"><%= link_to "Log in", new_user_session_path %></span>
+      <br>
+      <span class="btn btn-success w-100 m-1"><%= link_to "Sign up", new_user_registration_path %></span>
+    </span>
+    
+  </div>
+</div>

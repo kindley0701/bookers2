@@ -1,13 +1,27 @@
-<h1>User info</h1>
-<div>
-  <%= form_with model:@user, locla:true do |f| %>
-    <p>name</p>
-    <%= f.text_field :name %>
-    <p>image</p>
-    <%= f.attachment_field :profile_image %>
-    <p>introduction</p>
-    <%= f.text_area :introduction %>
-    <%= f.submit "Update User" %>
-  <% end %>
+<% if @user.errors.any? %>
+  <div class="error-message">
+      <p class="error-amount"><%= @user.errors.count %> error prohibited this book from being saved:</p>
+      <ul class="list">
+            <% @user.errors.full_messages.each do |message| %>
+              <li class="list-error"><%= message %></li>
+            <% end %>
+      </ul>
+  </div>
+<% end %> 
+<div class="main">
+  <div class="edit">
+    <h1>User info</h1>
+    <div>
+      <%= form_with model:@user, locla:true do |f| %>
+        <p>name</p>
+        <%= f.text_field :name %>
+        <p>image</p>
+        <%= f.attachment_field :profile_image %>
+        <p>introduction</p>
+        <%= f.text_area :introduction %><br>
+        <%= f.submit "Update User" %>
+      <% end %>
 
+    </div>
+  </div>
 </div>
