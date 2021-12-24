@@ -181,20 +181,10 @@ describe '[STEP2] ユーザログイン後のテスト' do
     end
 
     context '削除リンクのテスト' do
-      it 'application.html.erbにjavascript_include_tagを含んでいる' do
-        is_exist = 0
-        open("app/views/layouts/application.html.erb").each do |line|
-          strip_line = line.chomp.gsub(" ", "")
-          if strip_line.include?("<%=javascript_include_tag'application','data-turbolinks-track':'reload'%>")
-            is_exist = 1
-            break
-          end
-        end
-        expect(is_exist).to eq(1)
-      end
       before do
         click_link 'Destroy'
       end
+
       it '正しく削除される' do
         expect(Book.where(id: book.id).count).to eq 0
       end

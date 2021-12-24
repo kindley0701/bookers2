@@ -2,7 +2,7 @@
 <html>
   <head>
     <script src="https://kit.fontawesome.com/12ff2199f9.js" crossorigin="anonymous"></script>
-    
+
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,61 +14,61 @@
   <body>
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-        <h2><%= link_to "Bookers", root_path %></h2>
+        <h2 class="text-light"><%= link_to "Bookers", root_path %></h2>
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
             <li class="p-2 list-item">
               <%= link_to user_path(current_user.id) do %>
-                <i class="fas fa-home">Home</i>
+                <i class="fas fa-home text-light">Home</i>
               <% end %>
             </li>
             <li class="p-2 list-item">
               <%= link_to users_path do %>
-                <i class="fas fa-users">Users</i>
+                <i class="fas fa-users text-light">Users</i>
               <% end %>
             </li>
             <li class="p-2 list-item">
               <%= link_to books_path do %>
-                <i class="fas fa-book-open">Books</i>
+                <i class="fas fa-book-open text-light">Books</i>
               <% end %>
             </li>
             <li class="p-2 list-item">
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fas fa-sign-out-alt">Log out</i>
+                <i class="fas fa-sign-out-alt text-light">logout</i>
               <% end %>
             </li>
           <% else %>
             <li class="p-2 list-item">
               <%= link_to root_path do %>
-                <i class="fas fa-home">Home</i>
+                <i class="fas fa-home text-light">Home</i>
               <% end %>
             </li>
             <li class="p-2 list-item">
               <%= link_to '/home/about' do %>
-                <i class="fas fa-link">About</i>
+                <i class="fas fa-link text-light">About</i>
               <% end %>
             </li>
             <li class="p-2 list-item">
               <%= link_to new_user_registration_path do %>
-                <i class="fas fa-user-plus">Sign up</i>
+                <i class="fas fa-user-plus text-light">sign up</i>
               <% end %>
             </li>
             <li class="p-2 list-item">
               <%= link_to new_user_session_path do %>
-                <i class="fas fa-sign-in-alt">Log in</i>
+                <i class="fas fa-sign-in-alt text-light">login</i>
               <% end %>
             </li>
-          <% end %>    
+          <% end %>
         </ul>
       </nav>
     </header>
 
-    
+
       <%= yield %>
-    
-      
-    
-    
+
+
+
+
     <footer>CopyRight Infratop.inc</footer>
   </body>
 </html>

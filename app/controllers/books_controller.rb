@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  
+
   before_action :move_to_books, only: [:edit, :update]
 
   def index
@@ -25,6 +25,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book2 = Book.new
     @user = @book.user
+    @book_comment = BookComment.new
   end
 
   def edit
@@ -51,12 +52,11 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body)
   end
-  
+
   def move_to_books
     @book = Book.find(params[:id])
     unless @book.user_id == current_user.id
       redirect_to books_path
     end
   end
-
 end
